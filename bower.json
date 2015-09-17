@@ -1,0 +1,29 @@
+{
+  "name": "pea_portfolio",
+  "version": "1.0.0",
+  "homepage": "https://github.com/misfist/pea-portfolio",
+  "authors": [
+    "Pea <pea@misfist.com>"
+  ],
+  "description": "Custom single-page portfolio theme based on underscores.",
+  "main": "index.php",
+  "keywords": [
+    "wordpress",
+    "portfolio",
+    "theme"
+  ],
+  "license": "GPLv3",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "bootstrap-sass": "~3.3.5",
+    "font-awesome": "~4.4.0"
+  }
+}

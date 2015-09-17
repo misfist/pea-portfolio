@@ -1,0 +1,370 @@
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  background-image: url(#{$assetPath}/vintage-time-square.jpg);
+  background-color: $primary-light;
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@media only screen and (min-width : 768px) {
+  body {
+    background-image: none;
+  }
+}
+
+// Block Elements
+h1,
+h2 {
+  @extend %header;
+  margin: 10px 0;
+}
+
+h1 {
+  font-size: 46px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+section {
+  display: block;
+  @extend %clearfix;
+  // width: 100%;
+  min-height: 100%;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  min-height: 700px;
+  background-position: center;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@media only screen and (min-width : 768px) {
+  section {
+    background-size: cover;
+    min-height: 100%;
+  }
+}
+
+// Main Sections
+
+.container {
+  @extend %clearfix;
+}
+
+.admin-bar #site-navigation {
+  margin-top: 30px;
+}
+
+#main-nav {
+  background-color: $primary;
+
+  a,
+  a:link {
+    color: $white;
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+  #main-nav {
+    .navbar-nav {
+      float: right;
+    }
+  }
+
+}
+
+// Home Section
+#home {
+
+  padding-top: 100px;
+
+  header {
+    @extend %text-background;
+    padding: 20px;
+  }
+
+  h1,
+  h2 {
+      margin: 0;
+  }
+
+  h1 {
+    font-size: 46px;
+  }
+
+  nav {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid $white;
+    box-shadow: 0px -1px 0px 0px $black;
+  }
+
+}
+
+@media only screen and (min-width : 768px) {
+  #home {
+    padding-top: 240px;
+    background-image: url(#{$assetPath}/vintage-time-square.jpg);
+  }
+}
+
+#about {
+
+  h1 {
+    @extend %text-background;
+  }
+
+  article {
+    @extend %text-background;
+    padding: 20px;
+  }
+
+  p {
+    @extend %header;
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .image-border {
+    text-align: center;
+    max-width: 75%;
+  }
+}
+
+@media only screen and (min-width : 768px) {
+  #about {
+    background-image: url(#{$assetPath}/Editta-Sherman-subway.jpg);
+  }
+}
+
+#portfolio {
+  min-height: 100%;
+
+  header {
+    @extend %text-background;
+  }
+
+  li {
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    .img-background {
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      box-shadow: 1px 1px 0px 0px $primary-dark;
+
+      &.al-diaz {
+        background-image: url('#{$assetPath}/al-diaz.png');
+      }
+      &.nyc-prepared {
+        background-image: url('#{$assetPath}/nyc-prepared.png');
+      }
+      &.action-switchboard {
+        background-image: url('#{$assetPath}/action-switchboard.png');
+      }
+      &.seeing-more-possibilities {
+        background-image: url('#{$assetPath}/seeing-more-possibilities.png');
+      }
+      &.glocal {
+        background-image: url('#{$assetPath}/glocal.png');
+      }
+      &.yes-men-are-revolting {
+        background-image: url('#{$assetPath}/yes-men-are-revolting.png');
+      }
+      &.sfic {
+        background-image: url('#{$assetPath}/sfic.png');
+      }
+      &.biz-decals{
+        background-image: url('#{$assetPath}/1010-biz-decals.png');
+      }
+
+    }
+
+    .overlay {
+      display: table;
+      width: 100%;
+      height: 300px;
+      background: transparentize($primary, .2);
+      text-align: center;
+      opacity: 0;
+      transition: opacity .25s ease;
+      -webkit-transition: opacity .25s ease;
+      -moz-transition: opacity .25s ease;
+
+      &:hover,
+      &:focus {
+        opacity: 1;
+      }
+
+      .plus {
+        @extend %header;
+        font-size: 24px;
+        color: $white;
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+  }
+
+  /* Small Devices, Tablets */
+  @media only screen and (min-width : 768px) {
+
+    .plus {
+      font-size: 36px;
+    }
+
+  }
+}
+
+@media only screen and (min-width : 768px) {
+  #portfolio {
+    background-image: url('http://static1.squarespace.com/static/52b9c541e4b05b51357ee1b8/t/555f58c1e4b025563eb623b0/1432312002451/coney_island_ferris_wheel-wallpaper-1440x900.jpg?format=2500w');
+    min-height: 100%;
+  }
+}
+
+#contact {
+  h1 {
+    @extend %text-background;
+  }
+  .social-links {
+    li {
+      padding: 5px 0;
+    }
+  }
+}
+
+@media only screen and (min-width : 768px) {
+  #contact {
+    background-image: url('http://www.magic4walls.com/wp-content/uploads/2014/02/city-new-york-vintage-photography-skyscrapers-evening-hd-wallpaper.jpg');
+  }
+}
+
+footer {
+  @extend %clearfix;
+  background-color: $primary-dark;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  color: $white;
+  a,
+  a:link {
+    color: $white;
+    &:hover,
+    &:focus {
+      color: $white;
+    }
+  }
+}
+
+// Common Elements
+
+em {
+  font-style: italic;
+}
+
+p + p {
+  padding-top: 20px;
+}
+
+figure {
+
+  @include breakpoint(xs) {
+    img {
+      margin: 0 auto;
+    }
+  }
+
+}
+
+.btn {
+  box-shadow: 1px 1px 0px 0px $primary-light;
+  transition: all .2s ease-in-out;
+  @extend %header;
+
+  background-color: $accent;
+  color: $white;
+
+  a,
+  a:link {
+    color: $white;
+  }
+
+  &:hover,
+  &:focus {
+    color: $white;
+    transform: scale(1.1);
+  }
+}
+
+.copyleft {
+  color: $primary-light;
+
+  a,
+  a:link {
+    color: $primary-light;
+  }
+}
+
+// Specific Elements
+.navbar-brand {
+  margin: 0;
+  a,
+  a:link {
+    color: $white;
+  }
+}
+
+.navbar-inverse .navbar-toggle {
+  border-color: $white;
+}
+
+.image-border {
+  border: 15px solid $primary-light;
+  border-radius: 50%;
+}
+
+.image-thumb {
+  width: 280px;
+  height: 280px;    
+  overflow: hidden;
+  margin: 0 auto;
+
+  background-size: cover;
+  background-position: top;
+}
+
+@media only screen and (min-width : 768px) {
+  .image-thumb {
+    width: 300px;
+    height: 300px;    
+  }
+}
+
+.image-grow {
+  @extend %grow;
+}
+
+.social-links {
+  li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+}
