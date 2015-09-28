@@ -1,84 +1,48 @@
-.main-navigation {
-	clear: both;
-	display: block;
-	float: left;
-	width: 100%;
+//nav.main-navigation
+[role='navigation'] {
 
-	ul {
-		display: none;
-		list-style: none;
-		margin: 0;
-		padding-left: 0;
+	@extend .navbar;
+	@extend .navbar-inverse;
+	@extend .navbar-fixed-top;
 
-		ul {
-			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-			float: left;
-			position: absolute;
-			top: 1.5em;
-			left: -999em;
-			z-index: 99999;
+	.menu-container {
+		@extend .collapse;
+		@extend .navbar-collapse;
 
-			ul {
-				left: -999em;
-				top: 0;
-			}
-
-			li {
-				&:hover > ul,
-				&.focus > ul {
-					left: 100%;
-				}
-			}
-
-			a {
-				width: 200px;
-			}
-
-			:hover > a,
-			.focus > a {
-			}
-
-			a:hover,
-			a.focus {
-			}
+		@include breakpoint(sm) {
+			float: right;
 		}
 
-		li:hover > ul,
-		li.focus > ul {
-			left: auto;
+		// ul
+		.navigation-menu {
+			@extend .nav;
+			@extend .navbar-nav;
 		}
-	}
-	li {
-		float: left;
-		position: relative;
 
-		&:hover > a,
-		&.focus > a {
-		}
-	}
-	a {
-		display: block;
-		text-decoration: none;
 	}
 
-	.current_page_item > a,
-	.current-menu-item > a,
-	.current_page_ancestor > a {
+	h1 {
+		@extend .navbar-brand;
+		clear: inherit;
+		margin-top: 0;
+		background: transparent;
+	}
+
+	a,
+	a:link {
+		color: $white;
 	}
 }
 
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
-}
+// Footer nav
+.site-footer {
+	padding-top: .8em;
+	@extend .navbar-fixed-bottom;
+	@extend .navbar;
+	@extend .navbar-inverse;
 
-@media screen and (min-width: 37.5em) {
-	.menu-toggle {
-		display: none;
-	}
-	.main-navigation ul {
-		display: block;
+	.footer-nav {
+		@extend .pull-right;
 	}
 }
 

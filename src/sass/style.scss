@@ -1,4 +1,4 @@
-/*!
+/*
 Theme Name: Portfolio
 Theme URI: http://underscores.me/
 Author: Pea
@@ -23,7 +23,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
-# Normalize
+# Libraries
 # Typography
 # Elements
 # Forms
@@ -47,9 +47,26 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 @import "mixins/mixins-master";
 
 /*--------------------------------------------------------------
-# Normalize
+# Libraries
 --------------------------------------------------------------*/
-@import "normalize";
+@import "vendor/bootstrap/bootstrap";
+// @import "vendor/normalize";
+// @import "vendor/bootstrap/bootstrap/variables";
+// @import "vendor/bootstrap/bootstrap/mixins";
+// @import "vendor/bootstrap/bootstrap/utilities";
+// @import "vendor/bootstrap/bootstrap/scaffolding";
+// @import "vendor/bootstrap/bootstrap/grid";
+// @import "vendor/bootstrap/bootstrap/_component-animations";
+// @import "vendor/bootstrap/bootstrap/forms";
+// @import "vendor/bootstrap/bootstrap/navbar";
+// @import "vendor/bootstrap/bootstrap/navs";
+// @import "vendor/bootstrap/bootstrap/buttons";
+// @import "vendor/bootstrap/bootstrap/thumbnails";
+
+/*--------------------------------------------------------------
+# Core
+--------------------------------------------------------------*/
+@import "site/core";
 
 /*--------------------------------------------------------------
 # Typography

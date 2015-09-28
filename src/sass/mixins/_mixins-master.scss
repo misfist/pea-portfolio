@@ -46,6 +46,27 @@ $lg: 1200px; //Large Devices Large Desktops and Up
   }
 }
 
+@mixin columns($extend: true, $cols: 4, $size: sm) {
+  @if $extend {
+    @extend %columns;
+  }
+  @else {
+    // Mixin core
+
+  }
+}
+
+%columns {
+  @include columns($extend: false);
+}
+
+// @mixin make-column($lg, $md, $sm, $xs: 16) {
+//   .make-xs-column($xs);
+//   .make-sm-column($sm);
+//   .make-md-column($md);
+//   .make-lg-column($lg);
+// }
+
 
 // Extends
 %fake-browser-ui {
@@ -69,7 +90,7 @@ $lg: 1200px; //Large Devices Large Desktops and Up
 }
 
 %header {
-  font-family: 'Montserrat', sans-serif;
+  font-family: $font__header;
   color: $white;
   text-shadow: 1px 1px 1px $black;
   text-shadow: -1px -1px -1px $primary-light;

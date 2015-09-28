@@ -1,0 +1,488 @@
+/*!
+Theme Name: Portfolio
+Theme URI: http://underscores.me/
+Author: Pea
+Author URI: http://patricia-lutz.com
+Description: Custom single-page portfolio theme
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: pea_portfolio
+Tags:
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+pea_portfolio is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+*/
+
+@import 'reset';
+
+// Variables
+
+$primary: #2F4550;
+$primary-dark: #2D2D2D;
+$primary-light: #989898;
+$secondary: #677743;
+$secondary-dark: #434343;
+$secondary-light: #E2E2E1;
+$tertiary: $secondary;
+$accent: #B94019;
+
+$white: #fff;
+$black: #333;
+
+
+// RWD BREAKPOINTS 
+// mobile first! so you only have to use floats etc in larger sizes
+// set breakpoints where your content breaks, not particular devices
+
+$xs: 768px; //Extra Small Phones
+$sm: 769px; //Small Devices Tablets and Up
+$md: 992px; //Medium Devices  Desktops and Up
+$lg: 1200px; //Large Devices Large Desktops and Up
+
+@mixin breakpoint($point) {
+  @if $point == xs {
+    @media screen and (max-width: 768px)  { @content; } 
+  }
+  @if $point == sm {
+    @media screen and (min-width: 769px) { @content; }
+  }
+  @if $point == md {
+    @media screen and (min-width: 992px) { @content; }
+  }
+  @else if $point == lg {
+    @media screen and (min-width: 1200px) { @content; }
+  }
+}
+
+// Extends
+%fake-browser-ui {
+  .frame {
+    display: block;
+    height: 15px;
+    position: absolute;
+    top: 5px;
+    left: 1px;
+  }
+  
+  span {
+    height: 8px;
+    width: 8px;
+    border-radius: 8px;
+    background-color: #eee;
+    border: 1px solid #dadada;
+    float: left;
+    margin: 0 0 0 4px;
+  }
+}
+
+%header {
+  font-family: 'Montserrat', sans-serif;
+  color: $white;
+  text-shadow: 1px 1px 1px $black;
+  text-shadow: -1px -1px -1px $primary-light;
+}
+
+// CLEARFIX
+// for old markup w/clearfix class:
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+// for semantic markup, a la http://blog.teamtreehouse.com/a-better-clearfix-with-sass
+%clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+%text-background {
+    padding: 10px;
+    background: transparentize($primary-dark, .7);
+}
+
+%grow {
+  transition: all .2s;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+    @extend %box-shadow;
+  }
+}
+
+
+html,
+body,
+#content,
+section {
+  height: 100%;
+}
+
+body {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  background-image: url('https://41.media.tumblr.com/aaab3ad5e665d412c6d2f77dbaf7424c/tumblr_msr5hbCqFM1s7n9hno1_1280.jpg');
+  background-color: $primary-light;
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@media only screen and (min-width : 768px) {
+  body {
+    background-image: none;
+  }
+}
+
+// Block Elements
+h1,
+h2 {
+  @extend %header;
+  margin: 10px 0;
+}
+
+h1 {
+  font-size: 46px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+section {
+  @extend %clearfix;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  min-height: 700px;
+  background-position: center;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@media only screen and (min-width : 768px) {
+  section {
+    background-size: cover;
+    min-height: 100%;
+  }
+}
+
+// Main Sections
+
+.container {
+  @extend %clearfix;
+}
+
+#main-nav {
+  background-color: $primary;
+
+  a,
+  a:link {
+    color: $white;
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+  #main-nav {
+    .navbar-nav {
+      float: right;
+    }
+  }
+
+}
+
+// Home Section
+#home {
+
+  padding-top: 100px;
+
+  header {
+    @extend %text-background;
+    padding: 20px;
+  }
+
+  h1,
+  h2 {
+      margin: 0;
+  }
+
+  h1 {
+    font-size: 46px;
+  }
+
+  nav {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid $white;
+    box-shadow: 0px -1px 0px 0px $black;
+  }
+
+}
+
+@media only screen and (min-width : 768px) {
+  #home {
+    padding-top: 240px;
+    background-image: url('https://41.media.tumblr.com/aaab3ad5e665d412c6d2f77dbaf7424c/tumblr_msr5hbCqFM1s7n9hno1_1280.jpg');
+  }
+}
+
+#about {
+
+  h1 {
+    @extend %text-background;
+  }
+
+  article {
+    @extend %text-background;
+    padding: 20px;
+  }
+
+  p {
+    @extend %header;
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .image-border {
+    text-align: center;
+    max-width: 75%;
+  }
+}
+
+@media only screen and (min-width : 768px) {
+  #about {
+    background-image: url('http://animalnewyork.com/wp-content/uploads/Editta-Sherman-87930d_EdittaShermanSubway_Cunningham.jpg');
+  }
+}
+
+#portfolio {
+  min-height: 100%;
+
+  header {
+    @extend %text-background;
+  }
+
+  li {
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    .img-background {
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      box-shadow: 1px 1px 0px 0px $primary-dark;
+
+      &.al-diaz {
+        background-image: url('http://sandbox.misfist.com/portfolio/assets/images/al-diaz.png');
+      }
+      &.nyc-prepared {
+        background-image: url('http://sandbox.misfist.com/portfolio/assets/images/nyc-prepared.png');
+      }
+      &.action-switchboard {
+        background-image: url('http://sandbox.misfist.com/portfolio/assets/images/action-switchboard.png');
+      }
+      &.seeing-more-possibilities {
+        background-image: url('http://sandbox.misfist.com/portfolio/assets/images/seeing-more-possibilities.png');
+      }
+      &.glocal {
+        background-image: url('http://sandbox.misfist.com/portfolio/assets/images/glocal.png');
+      }
+      &.yes-men-are-revolting {
+        background-image: url('http://sandbox.misfist.com/portfolio/assets/images/yes-men-are-revolting.png');
+      }
+      &.sfic {
+        background-image: url('http://sandbox.misfist.com/portfolio/assets/images/sfic.png');
+      }
+      &.biz-decals{
+        background-image: url('http://sandbox.misfist.com/portfolio/assets/images/1010-biz-decals.png');
+      }
+
+    }
+
+    .overlay {
+      display: table;
+      width: 100%;
+      height: 300px;
+      background: transparentize($primary, .2);
+      text-align: center;
+      opacity: 0;
+      transition: opacity .25s ease;
+      -webkit-transition: opacity .25s ease;
+      -moz-transition: opacity .25s ease;
+
+      &:hover,
+      &:focus {
+        opacity: 1;
+      }
+
+      .plus {
+        @extend %header;
+        font-size: 24px;
+        color: $white;
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+  }
+
+  /* Small Devices, Tablets */
+  @media only screen and (min-width : 768px) {
+
+    .plus {
+      font-size: 36px;
+    }
+
+  }
+}
+
+@media only screen and (min-width : 768px) {
+  #portfolio {
+    background-image: url('http://static1.squarespace.com/static/52b9c541e4b05b51357ee1b8/t/555f58c1e4b025563eb623b0/1432312002451/coney_island_ferris_wheel-wallpaper-1440x900.jpg?format=2500w');
+    min-height: 100%;
+  }
+}
+
+#contact {
+  h1 {
+    @extend %text-background;
+  }
+  .social-links {
+    li {
+      padding: 5px 0;
+    }
+  }
+}
+
+@media only screen and (min-width : 768px) {
+  #contact {
+    background-image: url('http://www.magic4walls.com/wp-content/uploads/2014/02/city-new-york-vintage-photography-skyscrapers-evening-hd-wallpaper.jpg');
+  }
+}
+
+footer {
+  @extend %clearfix;
+  background-color: $primary-dark;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  color: $white;
+  a,
+  a:link {
+    color: $white;
+    &:hover,
+    &:focus {
+      color: $white;
+    }
+  }
+}
+
+// Common Elements
+
+em {
+  font-style: italic;
+}
+
+p + p {
+  padding-top: 20px;
+}
+
+figure {
+
+  @include breakpoint(xs) {
+    img {
+      margin: 0 auto;
+    }
+  }
+
+}
+
+.btn {
+  box-shadow: 1px 1px 0px 0px $primary-light;
+  transition: all .2s ease-in-out;
+  @extend %header;
+
+  background-color: $accent;
+  color: $white;
+
+  a,
+  a:link {
+    color: $white;
+  }
+
+  &:hover,
+  &:focus {
+    color: $white;
+    transform: scale(1.1);
+  }
+}
+
+.copyleft {
+  color: $primary-light;
+
+  a,
+  a:link {
+    color: $primary-light;
+  }
+}
+
+// Specific Elements
+.navbar-brand {
+  margin: 0;
+  a,
+  a:link {
+    color: $white;
+  }
+}
+
+.navbar-inverse .navbar-toggle {
+  border-color: $white;
+}
+
+.image-border {
+  border: 15px solid $primary-light;
+  border-radius: 50%;
+}
+
+.image-thumb {
+  width: 280px;
+  height: 280px;    
+  overflow: hidden;
+  margin: 0 auto;
+
+  background-size: cover;
+  background-position: top;
+}
+
+@media only screen and (min-width : 768px) {
+  .image-thumb {
+    width: 300px;
+    height: 300px;    
+  }
+}
+
+.image-grow {
+  @extend %grow;
+}
+
+.social-links {
+  li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+}

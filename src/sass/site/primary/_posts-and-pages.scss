@@ -3,7 +3,7 @@
 }
 
 .hentry {
-	margin: 0 0 1.5em;
+	margin: 0;
 }
 
 .byline,
@@ -16,11 +16,17 @@
 	display: inline;
 }
 
-.page-content,
-.entry-content,
-.entry-summary {
+.page-content {
 	margin: 1.5em 0 0;
 }
+
+.entry-header,
+.entry-content {
+    @extend .container;
+}
+// .entry-content {
+//     @extend .row;
+// }
 
 .page-links {
 	clear: both;

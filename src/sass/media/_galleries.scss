@@ -2,44 +2,98 @@
 	margin-bottom: 1.5em;
 }
 
+// .gallery-item {
+// 	display: inline-block;
+// 	text-align: center;
+// 	vertical-align: top;
+// 	width: 100%;
+
+// 	.gallery-columns-2 & {
+// 		max-width: 50%;
+// 	}
+
+// 	.gallery-columns-3 & {
+// 		max-width: 33.33%;
+// 	}
+
+// 	.gallery-columns-4 & {
+// 		max-width: 25%;
+// 	}
+
+// 	.gallery-columns-5 & {
+// 		max-width: 20%;
+// 	}
+
+// 	.gallery-columns-6 & {
+// 		max-width: 16.66%;
+// 	}
+
+// 	.gallery-columns-7 & {
+// 		max-width: 14.28%;
+// 	}
+
+// 	.gallery-columns-8 & {
+// 		max-width: 12.5%;
+// 	}
+
+// 	.gallery-columns-9 & {
+// 		max-width: 11.11%;
+// 	}
+// }
+
+// .wrapper
+// .main {
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   right: 0;
+//   left: 0;
+//   fill parent
+//   background-color: deepskyblue;
+//   /* let's see it! */
+//   color: white;
+// }
+
 .gallery-item {
-	display: inline-block;
-	text-align: center;
-	vertical-align: top;
-	width: 100%;
+    @include make-xs-column(12);
+    padding: 1em;
+    position: relative;
 
-	.gallery-columns-2 & {
-		max-width: 50%;
-	}
+    .gallery-icon {
+        border: 15px solid $primary-light;
+        border-radius: 50%;
+        @extend .img-background;
+        @extend .image-border;
+        @extend .image-thumb;
+        @extend .image-grow;
+        background-position: center top;
+    }
 
-	.gallery-columns-3 & {
-		max-width: 33.33%;
-	}
+    img {
+        opacity: 0;
+    }
 
-	.gallery-columns-4 & {
-		max-width: 25%;
-	}
-
-	.gallery-columns-5 & {
-		max-width: 20%;
-	}
-
-	.gallery-columns-6 & {
-		max-width: 16.66%;
-	}
-
-	.gallery-columns-7 & {
-		max-width: 14.28%;
-	}
-
-	.gallery-columns-8 & {
-		max-width: 12.5%;
-	}
-
-	.gallery-columns-9 & {
-		max-width: 11.11%;
-	}
+    figcaption {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+    }
 }
+
+@media only screen and (min-width : $sm) {
+    .gallery-item {
+        @include make-sm-column(6);
+    }
+}
+
+@media only screen and (min-width : $md) {
+    .gallery-item {
+       @include make-md-column(4);
+    }
+}
+
+//@include make-grid(xs)
 
 .gallery-caption {
 	display: block;

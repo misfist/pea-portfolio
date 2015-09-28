@@ -11,6 +11,10 @@ p {
 	margin-bottom: 1.5em;
 }
 
+p {
+  @extend %header;
+}
+
 dfn, cite, em, i {
 	font-style: italic;
 }
